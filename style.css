@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+:root {
+    --black: #0b0b0f;
+    --panel: #16161d;
+    --red: #e10600;
+    --white: #f5f5f7;
+    --muted: #858592;
+    --line: #292932;
+    --ferrari: #ff1744;
+    --mclaren: #ff8700;
+    --mercedes: #00d7c2;
+    --audi: #b8b8c2;
+    --font: 'Titillium Web', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+.topbar {
+    min-height: 61px;
+    padding: 0 3.7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    gap: 24px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.logo span,
+.footer span {
+    color: var(--red);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu a {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color .2s;
+}
+
+.menu a:hover {
+    color: var(--white);
+}
+
+.btn-primary,
+.btn-outline {
+    min-height: 36px;
+    padding: 0 19px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .2s;
+}
+
+.btn-primary {
+    background: var(--red);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #b90500;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+.top-button {
+    min-height: 36px;
+    min-width: 142px;
+}
+
+.hero {
+    min-height: 357px;
+    padding: 55px 3.7% 48px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(110deg,
+            var(--black) 0%, var(--black) 62%,
+            var(--red) 62%, var(--red) 64%,
+            rgba(11, 11, 15, .35) 64%),
+        url("img/piloto.jpg") right center / cover no-repeat;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 510px;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(3.1rem, 6vw, 4rem);
+    font-weight: 900;
+    font-style: italic;
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--red);
+}
+
+.hero-description {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.hero-actions {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.track-info {
+    position: absolute;
+    right: 4.3%;
+    bottom: 45px;
+    z-index: 1;
+    display: flex;
+}
+
+.info {
+    min-width: 88px;
+    padding: 0 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid rgba(255,255,255,.2);
+}
+
+.info strong {
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+}
+
+.info span {
+    color: #c6c6cc;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.kerb {
+    height: 9px;
+    background: repeating-linear-gradient(90deg,
+        var(--red) 0, var(--red) 28px,
+        var(--white) 28px, var(--white) 56px);
+}
+
+.container {
+    width: min(81%, 1120px);
+    margin: 0 auto;
+}
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    margin-bottom: 16px;
+    font-size: 25px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.section-title span {
+    margin-right: 7px;
+    color: var(--red);
+    font-size: 12px;
+    font-style: italic;
+    vertical-align: middle;
+}
+
+.drivers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.driver-card {
+    min-height: 125px;
+    padding: 10px 14px;
+    background: var(--panel);
+    border-top: 4px solid var(--team);
+    transition: transform .2s, background .2s;
+}
+
+.driver-card:hover {
+    transform: translateY(-6px);
+    background: #1c1c25;
+}
+
+.team-ferrari { --team: var(--ferrari); }
+.team-mclaren { --team: var(--mclaren); }
+.team-mercedes { --team: var(--mercedes); }
+.team-audi { --team: var(--audi); }
+
+.car-number {
+    display: block;
+    color: var(--team);
+    font-size: 3.3rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1.05;
+    opacity: .35;
+}
+
+.driver-name {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.driver-name strong {
+    font-weight: 900;
+}
+
+.team-name {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.filters {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: end;
+    gap: 11px;
+}
+
+.filter-item {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+label {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+input, select, textarea {
+    width: 100%;
+    min-height: 37px;
+    padding: 8px 10px;
+    color: var(--white);
+    background: #0a0a0e;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    outline: none;
+    font-size: 12px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--red);
+}
+
+select {
+    cursor: pointer;
+}
+
+.filter-button {
+    min-width: 79px;
+    min-height: 37px;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    background: var(--panel);
+    font-size: 12px;
+}
+
+th, td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    transition: background .2s;
+}
+
+tbody tr:hover {
+    background: #1e1e28;
+}
+
+.leader {
+    background: rgba(225, 6, 0, .12);
+}
+
+.pos {
+    width: 23px;
+    height: 23px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    background: var(--white);
+    font-weight: 900;
+}
+
+.leader .pos {
+    color: var(--white);
+    background: var(--red);
+}
+
+.bar {
+    width: 3px;
+    height: 14px;
+    margin-right: 5px;
+    display: inline-block;
+    background: var(--team);
+    vertical-align: middle;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.points {
+    font-weight: 900;
+}
+
+.tickets {
+    margin-top: 48px;
+    margin-bottom: 55px;
+    display: grid;
+    grid-template-columns: .85fr 1.35fr;
+    gap: 34px;
+    align-items: start;
+}
+
+.tickets-info .section-title {
+    margin-bottom: 18px;
+}
+
+.tickets-intro {
+    margin-bottom: 16px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.notice {
+    margin-bottom: 7px;
+    padding: 10px 12px;
+    color: #ffd000;
+    background: rgba(255, 208, 0, .12);
+    border-left: 3px solid #ffd000;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.prices {
+    list-style: none;
+}
+
+.prices li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+}
+
+.prices strong {
+    color: var(--red);
+    white-space: nowrap;
+}
+
+.ticket-form {
+    padding: 22px;
+    background: var(--panel);
+    border-top: 4px solid var(--red);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 15px;
+}
+
+.form-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group small {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.file-input {
+    padding: 7px;
+    border-style: dashed;
+}
+
+textarea {
+    min-height: 64px;
+    resize: vertical;
+}
+
+.submit-button {
+    min-height: 38px;
+    margin-top: 2px;
+}
+
+.footer {
+    min-height: 53px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    text-align: center;
+    font-size: 10px;
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        min-height: 58px;
+        padding: 0 5%;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .top-button {
+        min-width: auto;
+        padding: 0 12px;
+        font-size: 9px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 42px 5% 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--black);
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-description br {
+        display: none;
+    }
+
+    .track-info {
+        position: static;
+        margin-top: 28px;
+        align-self: stretch;
+        justify-content: flex-start;
+    }
+
+    .info {
+        min-width: 0;
+        flex: 1;
+        align-items: flex-start;
+    }
+
+    .info:first-child {
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .info strong {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .section {
+        margin-top: 35px;
+    }
+
+    .drivers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-button {
+        width: 100%;
+    }
+
+    .tickets {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .ticket-form {
+        padding: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.3px;
+    }
+
+    .hero-actions {
+        width: 100%;
+    }
+
+    .hero-actions a {
+        flex: 1;
+        padding: 0 9px;
+        font-size: 9px;
+    }
+
+    .drivers {
+        gap: 9px;
+    }
+
+    .driver-card {
+        min-height: 115px;
+        padding: 9px 10px;
+    }
+
+    .car-number {
+        font-size: 2.8rem;
+    }
+
+    .driver-name {
+        font-size: 12px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .footer {
+        font-size: 9px;
+    }
+}
